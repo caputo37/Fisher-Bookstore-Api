@@ -25,7 +25,7 @@ namespace Fisher.Bookstore.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BookstoreContext>(opt => opt.UseInMemoryDatabase("Books"));
+            services.AddDbContext<Data.BookstoreContext>(options => options.UseNpgsql(Configuration.GetConnectionString("BookstoreConnection")));
             services.AddMvc();
         }
 
@@ -36,7 +36,7 @@ namespace Fisher.Bookstore.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("CorsPolicy");
             app.UseMvc();
         }
     }

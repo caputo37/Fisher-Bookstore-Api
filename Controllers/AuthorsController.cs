@@ -11,9 +11,9 @@ namespace Fisher.Bookstore.Api.Controllers
 
     public class AuthorsController : Controller
     {
-        private readonly BookstoreContext db;
+        private readonly Data.BookstoreContext db;
 
-        public AuthorsController(BookstoreContext db)
+        public AuthorsController(Data.BookstoreContext db)
         {
             this.db = db;
 
